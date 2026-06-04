@@ -1,5 +1,6 @@
 <?xml version="1.0" encoding="utf-8"?>
 <resources>
+    <!-- Legacy names kept for compatibility -->
     <color name="purple_200">#FFBB86FC</color>
     <color name="purple_500">#FF6200EE</color>
     <color name="purple_700">#FF3700B3</color>
@@ -7,4 +8,52 @@
     <color name="teal_700">#FF018786</color>
     <color name="black">#FF000000</color>
     <color name="white">#FFFFFFFF</color>
+
+    <!-- ===== Brand palette (Material 3) ===== -->
+    <!-- Primary: deep indigo -->
+    <color name="brand_primary">#4F5BD5</color>
+    <color name="brand_on_primary">#FFFFFF</color>
+    <color name="brand_primary_container">#E0E0FF</color>
+    <color name="brand_on_primary_container">#020965</color>
+
+    <!-- Secondary: muted slate -->
+    <color name="brand_secondary">#5B5D72</color>
+    <color name="brand_on_secondary">#FFFFFF</color>
+    <color name="brand_secondary_container">#E0E1F9</color>
+    <color name="brand_on_secondary_container">#171A2C</color>
+
+    <!-- Error / kill switch accent -->
+    <color name="brand_error">#BA1A1A</color>
+    <color name="brand_on_error">#FFFFFF</color>
+    <color name="brand_error_container">#FFDAD6</color>
+    <color name="brand_on_error_container">#410002</color>
+
+    <!-- Surfaces -->
+    <color name="brand_surface">#FBF8FF</color>
+    <color name="brand_on_surface">#1B1B21</color>
+    <color name="brand_surface_variant">#E3E1EC</color>
+    <color name="brand_on_surface_variant">#46464F</color>
+    <color name="brand_outline">#777680</color>
+
+    <!-- ===== Dark variants ===== -->
+    <color name="brand_primary_dark">#BFC2FF</color>
+    <color name="brand_on_primary_dark">#1A2178</color>
+    <color name="brand_primary_container_dark">#363E91</color>
+    <color name="brand_on_primary_container_dark">#E0E0FF</color>
+
+    <color name="brand_secondary_dark">#C4C5DD</color>
+    <color name="brand_on_secondary_dark">#2D2F42</color>
+    <color name="brand_secondary_container_dark">#434559</color>
+    <color name="brand_on_secondary_container_dark">#E0E1F9</color>
+
+    <color name="brand_error_dark">#FFB4AB</color>
+    <color name="brand_on_error_dark">#690005</color>
+    <color name="brand_error_container_dark">#93000A</color>
+    <color name="brand_on_error_container_dark">#FFDAD6</color>
+
+    <color name="brand_surface_dark">#131318</color>
+    <color name="brand_on_surface_dark">#E4E1E9</color>
+    <color name="brand_surface_variant_dark">#46464F</color>
+    <color name="brand_on_surface_variant_dark">#C7C5D0</color>
+    <color name="brand_outline_dark">#918F9A</color>
 </resources>

@@ -3,11 +3,12 @@ package com.mahir.notification_remover;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
-import android.widget.ImageButton;
 import android.widget.TextView;
 
 import androidx.annotation.NonNull;
 import androidx.recyclerview.widget.RecyclerView;
+
+import com.google.android.material.button.MaterialButton;
 
 import java.util.List;
 import java.util.function.Consumer;
@@ -24,7 +25,7 @@ public class RulesAdapter extends RecyclerView.Adapter<RulesAdapter.ViewHolder> 
     public static class ViewHolder extends RecyclerView.ViewHolder {
         final TextView typeLabel;
         final TextView nameLabel;
-        final ImageButton deleteButton;
+        final MaterialButton deleteButton;
 
         ViewHolder(View view) {
             super(view);

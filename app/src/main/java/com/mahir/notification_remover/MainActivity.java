@@ -8,7 +8,6 @@ import android.graphics.Color;
 import android.os.Bundle;
 import android.view.MenuItem;
 import android.view.View;
-import android.widget.Button;
 import android.widget.TextView;
 import android.widget.Toast;
 
@@ -17,9 +16,10 @@ import androidx.recyclerview.widget.RecyclerView;
 import androidx.swiperefreshlayout.widget.SwipeRefreshLayout;
 
 import com.google.android.material.appbar.MaterialToolbar;
+import com.google.android.material.button.MaterialButton;
 import com.google.android.material.card.MaterialCardView;
 import com.google.android.material.color.MaterialColors;
-import com.google.android.material.floatingactionbutton.FloatingActionButton;
+import com.google.android.material.floatingactionbutton.ExtendedFloatingActionButton;
 
 import java.text.SimpleDateFormat;
 import java.util.Date;
@@ -32,12 +32,13 @@ public class MainActivity extends NotificationListenerActivity implements SwipeR
     NotificationListAdapter notificationListAdapter;
     NotificationListener notificationListener;
     BottomSheet notificationServicePermissionBottomSheet;
-    TextView noItemsPromptView;
+    View noItemsPromptView;
     int notificationIconColor;
     RulesManager rulesManager;
     KillSwitchManager killSwitchManager;
     MaterialCardView killSwitchBanner;
     TextView killSwitchStatusText;
+    ExtendedFloatingActionButton killSwitchFab;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -63,10 +64,10 @@ public class MainActivity extends NotificationListenerActivity implements SwipeR
 
         killSwitchBanner = findViewById(R.id.kill_switch_banner);
         killSwitchStatusText = findViewById(R.id.kill_switch_status_text);
-        Button killSwitchOffButton = findViewById(R.id.kill_switch_off_button);
+        MaterialButton killSwitchOffButton = findViewById(R.id.kill_switch_off_button);
         killSwitchOffButton.setOnClickListener(v -> deactivateKillSwitch());
 
-        FloatingActionButton killSwitchFab = findViewById(R.id.kill_switch_fab);
+        killSwitchFab = findViewById(R.id.kill_switch_fab);
         killSwitchFab.setOnClickListener(v -> {
             if (killSwitchManager.isActive()) {
                 deactivateKillSwitch();
@@ -179,6 +180,7 @@ public class MainActivity extends NotificationListenerActivity implements SwipeR
     private void updateKillSwitchBanner() {
         if (killSwitchManager.isActive()) {
             killSwitchBanner.setVisibility(View.VISIBLE);
+            killSwitchFab.setText(R.string.restore_all);
             long expiresAt = killSwitchManager.getExpiresAt();
             if (expiresAt == 0) {
                 killSwitchStatusText.setText(R.string.kill_switch_active_permanent);
@@ -188,6 +190,7 @@ public class MainActivity extends NotificationListenerActivity implements SwipeR
             }
         } else {
             killSwitchBanner.setVisibility(View.GONE);
+            killSwitchFab.setText(R.string.silence_all);
         }
     }
 
