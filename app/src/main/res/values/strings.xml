@@ -1,5 +1,5 @@
 <resources>
-    <string name="app_name">NO-tifications</string>
+    <string name="app_name">ZERO-fications</string>
 
     <string name="notification_listener_service">"Notification Listener Service"</string>
     <string name="notification_listener_service_explanation">"For the app to work you need to enable the Notification Listener Service. Enable it now?"</string>
