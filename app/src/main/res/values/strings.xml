@@ -1,0 +1,41 @@
+<resources>
+    <string name="app_name">NO-tifications</string>
+
+    <string name="notification_listener_service">"Notification Listener Service"</string>
+    <string name="notification_listener_service_explanation">"For the app to work you need to enable the Notification Listener Service. Enable it now?"</string>
+    <string name="notification_icon_content_desc">Notification Icon</string>
+    <string name="notification_clear_btn">clear</string>
+    <string name="enable_button">Enable</string>
+    <string name="no_notifications_prompt">No notifications found</string>
+    <string name="pull_to_refresh">Pull to refresh</string>
+
+    <!-- Rules screen -->
+    <string name="rules_title">Block Rules</string>
+    <string name="no_rules_prompt">No rules yet.\nTap + to add a keyword rule,\nor long-press a notification to block an app.</string>
+    <string name="add_keyword_title">Add Keyword Rule</string>
+    <string name="keyword_hint">e.g. Advertisement</string>
+    <string name="add">Add</string>
+    <string name="add_keyword_desc">Add keyword rule</string>
+    <string name="delete_rule_desc">Delete rule</string>
+    <string name="rule_type_app">APP</string>
+    <string name="rule_type_keyword">KEYWORD</string>
+
+    <!-- Kill switch -->
+    <string name="kill_switch_desc">Kill switch — silence all notifications</string>
+    <string name="kill_switch_title">Silence All Notifications</string>
+    <string name="kill_switch_for">Silence for how long?</string>
+    <string name="ks_30min">30 minutes</string>
+    <string name="ks_1hour">1 hour</string>
+    <string name="ks_2hours">2 hours</string>
+    <string name="ks_4hours">4 hours</string>
+    <string name="ks_permanent">Until I turn it off</string>
+    <string name="kill_switch_active_permanent">Kill switch ON — all notifications silenced</string>
+    <string name="kill_switch_active_until">Kill switch ON — silenced until %s</string>
+    <string name="turn_off">Turn Off</string>
+    <string name="kill_switch_deactivated">Kill switch turned off — notifications restored</string>
+
+    <!-- Block app dialog -->
+    <string name="block_app_title">Block App</string>
+    <string name="block_app_message">Always hide notifications from %s?</string>
+    <string name="block">Block</string>
+</resources>
