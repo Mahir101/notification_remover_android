@@ -9,13 +9,14 @@ import android.util.Log;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
-import android.widget.CheckBox;
 import android.widget.CompoundButton;
 import android.widget.ImageView;
 import android.widget.TextView;
 
 import androidx.annotation.NonNull;
 import androidx.recyclerview.widget.RecyclerView;
+
+import com.google.android.material.materialswitch.MaterialSwitch;
 
 import java.util.function.Consumer;
 
@@ -27,7 +28,7 @@ public class NotificationListAdapter extends RecyclerView.Adapter<NotificationLi
 
     public static class ViewHolder extends RecyclerView.ViewHolder {
         View view;
-        CheckBox checkBox;
+        MaterialSwitch activeSwitch;
         ImageView icon;
         TextView appName;
         TextView title;
@@ -37,7 +38,7 @@ public class NotificationListAdapter extends RecyclerView.Adapter<NotificationLi
         public ViewHolder(View view, int iconColor) {
             super(view);
             this.view = view;
-            this.checkBox = view.findViewById(R.id.clear_notification_checkbox);
+            this.activeSwitch = view.findViewById(R.id.clear_notification_checkbox);
             this.icon = view.findViewById(R.id.notification_icon);
             this.appName = view.findViewById(R.id.app_name);
             this.title = view.findViewById(R.id.notification_title);
@@ -46,15 +47,15 @@ public class NotificationListAdapter extends RecyclerView.Adapter<NotificationLi
         }
 
         public void update(NotificationItem notification) {
-            checkBox.setOnCheckedChangeListener(null);
+            activeSwitch.setOnCheckedChangeListener(null);
 
-            // set checkBox initial status based on whether notification is snoozed
-            checkBox.setChecked(!notification.isActive());
+            // Switch ON = notification is shown/active, OFF = hidden (snoozed)
+            activeSwitch.setChecked(notification.isActive());
 
-            checkBox.setOnCheckedChangeListener(new CompoundButton.OnCheckedChangeListener() {
+            activeSwitch.setOnCheckedChangeListener(new CompoundButton.OnCheckedChangeListener() {
                 @Override
                 public void onCheckedChanged(CompoundButton buttonView, boolean isChecked) {
-                    notification.setActive(!isChecked);
+                    notification.setActive(isChecked);
                 }
             });
 
