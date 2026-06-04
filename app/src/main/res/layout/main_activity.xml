@@ -3,20 +3,23 @@
     xmlns:android="http://schemas.android.com/apk/res/android"
     xmlns:app="http://schemas.android.com/apk/res-auto"
     android:layout_width="match_parent"
-    android:layout_height="match_parent">
+    android:layout_height="match_parent"
+    android:background="?android:attr/colorBackground">
 
     <com.google.android.material.appbar.AppBarLayout
         android:layout_width="match_parent"
-        android:layout_height="wrap_content">
+        android:layout_height="wrap_content"
+        android:background="@android:color/transparent"
+        app:elevation="0dp">
 
         <com.google.android.material.appbar.MaterialToolbar
             android:id="@+id/topAppBar"
             android:layout_width="match_parent"
             android:layout_height="?attr/actionBarSize"
-            android:background="?attr/colorPrimaryVariant"
             app:menu="@menu/main_menu"
             app:title="@string/app_name"
-            app:titleCentered="true" />
+            app:titleCentered="true"
+            app:titleTextAppearance="?attr/textAppearanceHeadlineSmall" />
 
     </com.google.android.material.appbar.AppBarLayout>
 
@@ -26,13 +29,12 @@
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
         android:layout_gravity="top"
-        android:layout_marginStart="12dp"
-        android:layout_marginEnd="12dp"
+        android:layout_marginHorizontal="12dp"
         android:layout_marginTop="72dp"
         android:visibility="gone"
-        app:cardBackgroundColor="@color/purple_500"
-        app:cardCornerRadius="8dp"
-        app:cardElevation="4dp"
+        app:cardBackgroundColor="?attr/colorErrorContainer"
+        app:cardCornerRadius="20dp"
+        app:cardElevation="0dp"
         app:layout_behavior="@string/appbar_scrolling_view_behavior">
 
         <LinearLayout
@@ -40,23 +42,33 @@
             android:layout_height="wrap_content"
             android:gravity="center_vertical"
             android:orientation="horizontal"
-            android:padding="12dp">
+            android:paddingStart="16dp"
+            android:paddingEnd="8dp"
+            android:paddingVertical="8dp">
+
+            <ImageView
+                android:layout_width="22dp"
+                android:layout_height="22dp"
+                android:contentDescription="@null"
+                android:src="@android:drawable/ic_lock_silent_mode"
+                app:tint="?attr/colorOnErrorContainer" />
 
             <TextView
                 android:id="@+id/kill_switch_status_text"
                 android:layout_width="0dp"
                 android:layout_height="wrap_content"
+                android:layout_marginStart="12dp"
                 android:layout_weight="1"
-                android:textColor="@color/white"
-                android:textSize="13sp" />
+                android:textAppearance="?attr/textAppearanceBodyMedium"
+                android:textColor="?attr/colorOnErrorContainer" />
 
-            <Button
+            <com.google.android.material.button.MaterialButton
                 android:id="@+id/kill_switch_off_button"
+                style="@style/Widget.Material3.Button.TextButton"
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
                 android:text="@string/turn_off"
-                android:textColor="@color/white"
-                style="@style/Widget.Material3.Button.TextButton" />
+                android:textColor="?attr/colorOnErrorContainer" />
 
         </LinearLayout>
 
@@ -71,31 +83,61 @@
         <androidx.recyclerview.widget.RecyclerView
             android:id="@+id/notification_list"
             android:layout_width="match_parent"
-            android:layout_height="match_parent" />
+            android:layout_height="match_parent"
+            android:clipToPadding="false"
+            android:paddingTop="6dp"
+            android:paddingBottom="96dp" />
 
     </androidx.swiperefreshlayout.widget.SwipeRefreshLayout>
 
     <!-- Shown when no notifications are present -->
-    <TextView
+    <LinearLayout
         android:id="@+id/no_items_prompt"
         android:layout_width="match_parent"
         android:layout_height="match_parent"
         android:gravity="center"
-        android:padding="20dp"
-        android:text="@string/no_notifications_prompt"
-        android:textAlignment="center"
-        android:textAppearance="@style/TextAppearance.AppCompat.Display1"
+        android:orientation="vertical"
+        android:padding="32dp"
         android:visibility="gone"
-        app:layout_behavior="@string/appbar_scrolling_view_behavior" />
+        app:layout_behavior="@string/appbar_scrolling_view_behavior">
+
+        <ImageView
+            android:layout_width="96dp"
+            android:layout_height="96dp"
+            android:alpha="0.4"
+            android:contentDescription="@null"
+            android:src="@android:drawable/ic_lock_silent_mode"
+            app:tint="?attr/colorOnSurfaceVariant" />
+
+        <TextView
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_marginTop="20dp"
+            android:gravity="center"
+            android:text="@string/no_notifications_prompt"
+            android:textAppearance="?attr/textAppearanceHeadlineSmall"
+            android:textColor="?attr/colorOnSurface" />
+
+        <TextView
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_marginTop="8dp"
+            android:gravity="center"
+            android:text="@string/no_notifications_subtitle"
+            android:textAppearance="?attr/textAppearanceBodyMedium"
+            android:textColor="?attr/colorOnSurfaceVariant" />
+
+    </LinearLayout>
 
     <!-- Kill switch FAB -->
-    <com.google.android.material.floatingactionbutton.FloatingActionButton
+    <com.google.android.material.floatingactionbutton.ExtendedFloatingActionButton
         android:id="@+id/kill_switch_fab"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:layout_gravity="bottom|end"
         android:layout_margin="16dp"
         android:contentDescription="@string/kill_switch_desc"
-        app:srcCompat="@android:drawable/ic_lock_silent_mode" />
+        android:text="@string/silence_all"
+        app:icon="@android:drawable/ic_lock_silent_mode" />
 
 </androidx.coordinatorlayout.widget.CoordinatorLayout>

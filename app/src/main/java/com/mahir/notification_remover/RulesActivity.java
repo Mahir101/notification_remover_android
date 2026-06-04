@@ -6,13 +6,12 @@ import android.os.Bundle;
 import android.view.MenuItem;
 import android.view.View;
 import android.widget.EditText;
-import android.widget.TextView;
 
 import androidx.appcompat.app.AppCompatActivity;
 import androidx.recyclerview.widget.LinearLayoutManager;
 import androidx.recyclerview.widget.RecyclerView;
 
-import com.google.android.material.floatingactionbutton.FloatingActionButton;
+import com.google.android.material.floatingactionbutton.ExtendedFloatingActionButton;
 
 import java.util.ArrayList;
 import java.util.List;
@@ -24,7 +23,7 @@ public class RulesActivity extends AppCompatActivity {
     private RulesAdapter adapter;
     private final List<Rule> rules = new ArrayList<>();
     private RecyclerView rulesRecyclerView;
-    private TextView noRulesPrompt;
+    private View noRulesPrompt;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -44,7 +43,7 @@ public class RulesActivity extends AppCompatActivity {
         rulesRecyclerView.setAdapter(adapter);
         rulesRecyclerView.setLayoutManager(new LinearLayoutManager(this));
 
-        FloatingActionButton fab = findViewById(R.id.add_keyword_fab);
+        ExtendedFloatingActionButton fab = findViewById(R.id.add_keyword_fab);
         fab.setOnClickListener(v -> showAddKeywordDialog());
 
         loadRules();
