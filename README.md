@@ -1,4 +1,4 @@
-# ZERO-fications — Advanced Notification Blocker for Android
+# ZERO-fications: Advanced Notification Blocker for Android
 
 Remove, block, and silence any notification on Android — including ongoing (persistent) ones that normally can't be dismissed.
 
